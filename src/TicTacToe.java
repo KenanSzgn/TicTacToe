@@ -37,11 +37,11 @@ public class TicTacToe {
     public char[] inputPlayerLetter() {
         char letter = ' ';
         char[] arr;
-        while (letter != 'x' || letter != 'o') {
+        while (letter != 'X' && letter != 'O') {
             System.out.println("Do you want to be X or O?");
             letter = in.next().toUpperCase().charAt(0);
         }
-        // The first element of the list is the letter of the gamer, the
+        // The first element of the list is the letter of the player, the
         // second element is the letter of the computers.
         // German:
         // Das erste Element der Liste ist der Buchstabe des Spielers, das

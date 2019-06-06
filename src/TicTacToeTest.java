@@ -8,8 +8,8 @@
 public class TicTacToeTest {
     public static void main(String[] args) {
         TicTacToe ob = new TicTacToe();
-        char[] playerLetter;
-        char[] computerLetter;
+        char[] playerLetterArray = new char[2];
+        char[] computerLetterArray = new char[2];
         char playerLetterChar = ' ';
         char computerLetterChar = ' ';
         System.out.println("Welcome to Tic-Tac-Toe!");
@@ -20,10 +20,12 @@ public class TicTacToeTest {
             char[] theBoard = new char[]{' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
             // QUESTION:
             // in Python you can use multiple assigments and
-            // it looks like this: playerLetter, computerLetter = inputPlayerLetter()
+            // it looks like this: playerLetterArray, computerLetterArray = inputPlayerLetter()
             // i need a alternative solution for java
-            playerLetter = ob.inputPlayerLetter();
-            computerLetter = ob.inputPlayerLetter();
+            // wie greift man auf die einzelnen chars von einem array zu und übergibt sie jeweils verschiedenen Variablen
+            playerLetterArray = ob.inputPlayerLetter();
+            playerLetterChar = playerLetterArray[0];
+            computerLetterChar = playerLetterArray[1];
 
             String turn = ob.whoGoesFirst();
             System.out.println("The " + turn + " will go first.");
