@@ -24,6 +24,7 @@ public class TicTacToeTest {
             // i need a alternative solution for java
             // wie greift man auf die einzelnen chars von einem array zu und übergibt sie jeweils verschiedenen Variablen
             playerLetterArray = ob.inputPlayerLetter();
+            System.out.println(playerLetterArray[0]+" and "+playerLetterArray[1]);
             playerLetterChar = playerLetterArray[0];
             computerLetterChar = playerLetterArray[1];
 
@@ -34,24 +35,22 @@ public class TicTacToeTest {
             while (gameIsPlaying) {
                 // The turn of the Player
                 if (turn == "Player") {
+                    // Prints a clean board
                     ob.printBoard(theBoard);
                     int move = ob.getPlayerMove(theBoard);
                     ob.makeMove(theBoard, playerLetterChar, move);
 
                     if (ob.isWinner(theBoard, playerLetterChar) == true) {
                         ob.printBoard(theBoard);
-                        System.out.println("Hooray! You have won the game!");
                         gameIsPlaying = false;
-                    } else {
-
-                        if (ob.isBoardFull(theBoard) == true) {
+                        System.out.println("Hooray! You have won the game!");
+                    } else if (ob.isBoardFull(theBoard) == true) {
                             System.out.println("The game is a tiel!");
                             break;
                         } else {
                             turn = "Computer";
                         }
-                    }
-                } else {
+                    } else {
                     // The turn of the Computers
                     int move = ob.getComputerMove(theBoard, computerLetterChar);
                     ob.makeMove(theBoard, computerLetterChar, move);
@@ -60,9 +59,7 @@ public class TicTacToeTest {
                         ob.printBoard(theBoard);
                         System.out.println("The Computer has beaten you! You lose.");
                         gameIsPlaying = false;
-                    } else {
-
-                        if (ob.isBoardFull(theBoard) == true) {
+                    } else if (ob.isBoardFull(theBoard) == true) {
                             System.out.println("The game is a tiel!");
                             break;
                         } else {
@@ -71,6 +68,6 @@ public class TicTacToeTest {
                     }
                 }
             }
-        }
+
     }
 }

@@ -138,8 +138,10 @@ public class TicTacToe {
         // Solange der User keine Korrekte Eingabe zwischen 1 und 9 macht und solange das entsprechende
         // Feld nicht frei ist, frage wo der User setzen will.
         while (move < 1 && move > 9 || isSpaceFree(board, move) != true) {
-            System.out.println("What is your next move? (1-9)");
+            System.out.println("Invalid Move! What is your next move? (1-9)");
+            move = in.nextInt();
         }
+        System.out.println("What is your next move? (1-9)");
         move = in.nextInt();
         return move;
     }
@@ -181,8 +183,8 @@ public class TicTacToe {
         // Algorithmus für die Tic Tac Toe KI
         // Prüft als erstes ob ein Sieg mit dem nächsten Zug möglich ist
         char[] boardCopy = new char[10];
+        boardCopy = getBoardCopy(board);
         for (int i = 0; i < 10; i++) {
-            boardCopy = getBoardCopy(board);
             if (isSpaceFree(boardCopy, i) == true) {
                 makeMove(boardCopy, computerLetter, i);
                 if (isWinner(boardCopy, computerLetter) == true) {
@@ -190,7 +192,6 @@ public class TicTacToe {
                 }
             }
         }
-
         // Check if the player could win with his next turn and block this move
         //German:
         // Prüft, ob der Spiler mit seinem nächsten Zug gewinnen könnte
@@ -204,7 +205,6 @@ public class TicTacToe {
                 }
             }
         }
-
         // Try to occupy one of the corners if one is free
         // German:
         // Versucht eine der Ecken zu belegen wenn eine frei ist
@@ -212,14 +212,12 @@ public class TicTacToe {
         if (move != null) {
             return move;
         }
-
         // Try to occupy the center when it is free
         // German:
         // Versucht die Mitte zu belegen, wenn sie frei ist
         if (isSpaceFree(board, 5) == true) {
             return 5;
         }
-
         // Make a move on one of the sides
         // German:
         // Macht einen Zug auf einer der Seiten
