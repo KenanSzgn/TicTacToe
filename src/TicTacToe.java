@@ -14,7 +14,7 @@ public class TicTacToe {
     Scanner in = new Scanner(System.in);
     Random randomNumber = new Random();
     // Array for the gameboard
-    char[] board = new char[9];
+    char[] board = new char[10];
 
     // This Method prints the gameboard
     // German:
@@ -228,7 +228,7 @@ public class TicTacToe {
     // German:
     // Gibt true zurück, wenn alle Spielfelder belegt sind, andernfalls false.
     public boolean isBoardFull(char[] board) {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i <= board.length; i++) {
             if (isSpaceFree(board, i) == true) {
                 return false;
             }
