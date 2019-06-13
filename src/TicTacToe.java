@@ -24,7 +24,7 @@ public class TicTacToe {
     // Returns the player letter
     public char inputPlayerLetter() {
         char letter = ' ';
-        while (letter != 'X' || letter != 'O') {
+        while (letter != 'X' && letter != 'O') {
             System.out.println("Do you want to be X or O?");
             letter = in.next().toUpperCase().charAt(0);
         }
@@ -41,6 +41,53 @@ public class TicTacToe {
             return "Computer";
         }
     }
+
+    // places the move in the array
+    public void makeMove(char[] board, char letter, int move) {
+        board[move] = letter;
+    }
+
+    // checks if the place is free
+    public boolean isSpaceFree(char[] board, int move) {
+        if (board[move] == ' ') {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean isWinner(char[] board, char letter) {
+        if (board[7] == letter && board[8] == letter && board[9] == letter) {
+            return true;
+        } else if (board[4] == letter && board[5] == letter && board[6] == letter) {
+            return true;
+        } else if (board[1] == letter && board[2] == letter && board[3] == letter) {
+            return true;
+        } else if (board[7] == letter && board[4] == letter && board[1] == letter) {
+            return true;
+        } else if (board[8] == letter && board[5] == letter && board[2] == letter) {
+            return true;
+        } else if (board[9] == letter && board[6] == letter && board[3] == letter) {
+            return true;
+        } else if (board[7] == letter && board[5] == letter && board[3] == letter) {
+            return true;
+        } else if (board[9] == letter && board[5] == letter && board[1] == letter) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public int getPlayerMove(char[] board) {
+        int move = 0;
+        while (move < 1 && move > 9 || isSpaceFree(board, move) == false) {
+            System.out.println("What is your next move (1-9)?");
+            move = in.nextInt();
+        }
+        return move;
+
+    }
+}
 
 
 }
