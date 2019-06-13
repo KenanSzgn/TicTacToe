@@ -6,6 +6,7 @@
  * Autor:   				Kenan Sezgin
  **/
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -105,7 +106,7 @@ public class TicTacToe {
     // Copy the game board and return the copy
     // German:
     // Für die KI, damit sie Änderungen an einer temporären Kopie des Spielbretts
-    // machen kann, um somit einen Zug zu planen
+    // vornehmen kann, um somit einen Zug zu planen
     // Kopiert die Spielbrettliste und gibt die Kopie zurück
     public char[] getBoardCopy(char[] board) {
         char[] boardCopy = new char[10];
