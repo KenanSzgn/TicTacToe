@@ -9,7 +9,7 @@ import java.util.Scanner;
  */
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
-
+//
 public class Spiel {
     // Hier speichere ich die Koordinaten der X'e vom User
     int[] gespeicherteKombinationen = new int[9];
